@@ -2,6 +2,6 @@
 
 void Level::Tick()
 {
-	y = -720 + (line % 721);
+	y = -720 + (line % 720);
 	line += 2;
 }
