@@ -40,18 +40,17 @@ Game::~Game()
 }
 
 Object *Game::GetPlayer()
-{/* For now this is broken, so it's commented just for the sake of building
-	vector<Object *>::iterator iter = objects.begin();
-
-	while ((*iter)->type != 1 && iter != objects.end())
+{
+	if (objects.size() != 0)
 	{
-		iter.operator ++();
+		for (Object *o : this->objects)
+		{
+			if (o->type == ObjectType::OBJ_PLAYER)
+				return o;
+		}
 	}
 
-	if (iter != objects.end())
-		return *iter;
-	else
-		return NULL;*/
+	return NULL;
 }
 
 void Game::RemObject(Object *obj)

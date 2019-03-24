@@ -16,7 +16,7 @@ void Player::Tick()
 
 	if (game->keystates[SDL_SCANCODE_D] && beam_timer == 0)
 	{
-		game->AddObject(new Beam(game, (char *) "/home/ivan/Qt Creator/ship/p_beam.png", true, x + 4, y - 8));
+		game->AddObject(new Beam(game, BeamType::BEAM_PLAYER, x + 4, y - 8));
 		beam_timer = 8;
 	}
 }

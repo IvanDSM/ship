@@ -1,7 +1,6 @@
 #include "game.h"
 #include "object.h"
 #include <iostream>
-#include <SDL2/SDL_image.h>
 #include <string>
 
 Object::Object(Game *Pgame, char texture_path[], bool is_visible, int pos_x, int pos_y)
@@ -11,13 +10,16 @@ Object::Object(Game *Pgame, char texture_path[], bool is_visible, int pos_x, int
 	fx_fliph = false;
 	fx_flipv = false;
 	game = Pgame;
+	type = ObjectType::OBJ_GENERIC;
 	visible = is_visible;
 	x = pos_x;
 	y = pos_y;
+	if (texture_path != NULL)
+	{
 	sprite = SDL_CreateTextureFromSurface(game->renderer, IMG_Load(texture_path));
 	SDL_QueryTexture(sprite, NULL, NULL, &this->w, &this->h);
-
 	Pgame->AddObject(this);
+	}
 }
 
 Object::~Object()

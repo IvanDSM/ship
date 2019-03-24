@@ -11,7 +11,11 @@ class Player : public Object
 		int				beam_timer = 0;
 
 	public:
-						using Object::Object;
+						Player(Game *Pgame, int pos_x, int pos_y) : Object(Pgame, (char *) "p_ship.png", true, pos_x, pos_y)
+						{
+							type = ObjectType::OBJ_PLAYER;
+						}
+
 		void			Tick();
 };
 

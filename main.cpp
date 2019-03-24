@@ -9,5 +9,5 @@ int main(int argc, char *argv[])
 {
 	Game ship;
 
-	Player *play = new Player(&ship, (char *) "/home/ivan/Qt Creator/ship/p_ship.png", true, 116, 105);
+	Player *play = new Player(&ship, 116, 105);
 }
