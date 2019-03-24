@@ -14,6 +14,7 @@ enum class ObjectType
 	OBJ_ENEMY_SLIDER,
 	OBJ_PLAYER_BEAM,
 	OBJ_ENEMY_BEAM,
+	OBJ_LEVEL = 0xFE,
 	OBJ_UNKNOWN = 0xFF
 };
 

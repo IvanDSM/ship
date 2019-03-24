@@ -8,10 +8,12 @@ SOURCES += main.cpp \
     game.cpp \
     object.cpp \
     player.cpp \
-    beam.cpp
+    beam.cpp \
+    level.cpp
 
 HEADERS += \
     game.h \
     object.h \
     player.h \
-    beam.h
+    beam.h \
+    level.h
