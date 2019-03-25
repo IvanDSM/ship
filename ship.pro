@@ -17,3 +17,10 @@ HEADERS += \
     player.h \
     beam.h \
     level.h
+
+DISTFILES += \
+    e_beam.png \
+    e_ship.png \
+    level.png \
+    p_beam.png \
+    p_ship.png
