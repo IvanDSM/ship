@@ -1,7 +1,10 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
-#include <object.h>
+#include "object.h"
+#include <vector>
+
+using std::vector;
 
 enum class LevelEventType
 {
@@ -24,9 +27,11 @@ class Level : public Object
 {
 	protected:
 		int				line = 0;
+		int				scroll_speed = 2;
+		vector <struct LevelEvent> events;
 
 	public:
-		void			InterpretEvent(struct LevelEvent event);
+		void			InterpretEvent();
 						Level (Game *Pgame) : Object(Pgame, (char *) "level.png", true, 0, -720)
 						{
 							type = ObjectType::OBJ_LEVEL;
