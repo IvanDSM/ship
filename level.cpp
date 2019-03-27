@@ -1,7 +1,7 @@
 #include <iostream>
 #include "level.h"
 
-using std::cout;
+using namespace std;
 
 void Level::InterpretEvent()
 {
@@ -26,8 +26,12 @@ void Level::InterpretEvent()
 			cout << "LEVENT_ENDLEVEL stubbed\n";
 			break;
 	}
-
 	events.pop_back();
+}
+
+void Level::LoadLevelFile(char level_path[])
+{
+
 }
 
 void Level::Tick()

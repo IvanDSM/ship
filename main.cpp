@@ -8,9 +8,14 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+	if (argc > 1) // Interpret arguments
+	{
+
+	}
+
 	Game ship;
 
-	Level *level = new Level(&ship);
+	Level level(&ship, (char *) "level");
 
-	Player *play = new Player(&ship, 116, 105);
+	Player player(&ship, 116, 105);
 }

@@ -5,7 +5,7 @@ void Player::Tick()
 	if (beam_timer > 0)
 		beam_timer --;
 
-	if (game->keystates[SDL_SCANCODE_UP] && y > 0)
+	if (game->keystates[SDL_SCANCODE_UP] && y > 1)
 		y-=2;
 	else if (game->keystates[SDL_SCANCODE_DOWN] && y < 225)
 		y+=2;

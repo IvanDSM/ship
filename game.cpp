@@ -59,6 +59,8 @@ void Game::RemObject(Object *obj)
 
 	if (iter != objects.end())
 		objects.erase(iter);
+
+	obj->~Object();
 }
 
 void Game::Render()
@@ -100,8 +102,7 @@ void Game::Tick()
 
 		usleep(1000000/60.000);
 
-		this->Tick();
+		if (this->running)
+			this->Tick();
 	}
-	else
-		this->~Game();
 }
