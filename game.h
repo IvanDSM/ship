@@ -16,7 +16,6 @@ class Game
 		bool			running;
 		int				frame;
 		SDL_Event		events;
-		SDL_Rect		bar;
 		SDL_Renderer	*renderer;
 		SDL_Window		*window;
 		thread			tickThread;
