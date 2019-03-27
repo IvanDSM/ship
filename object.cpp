@@ -16,17 +16,17 @@ Object::Object(Game *Pgame, char texture_path[], bool is_visible, int pos_x, int
 	y = pos_y;
 	if (texture_path != NULL)
 	{
-	sprite = SDL_CreateTextureFromSurface(game->renderer, IMG_Load(texture_path));
-	SDL_QueryTexture(sprite, NULL, NULL, &this->w, &this->h);
-	Pgame->AddObject(this);
+		sprite = SDL_CreateTextureFromSurface(game->renderer, IMG_Load(texture_path));
+		SDL_QueryTexture(sprite, NULL, NULL, &this->w, &this->h);
+		Pgame->AddObject(this);
 	}
 }
-
+/*
 Object::~Object()
 {
-
+	// Ivan, stop being lazy and do this already!!!
 }
-
+*/
 void Object::Draw()
 {
 	if (!alive || !visible)

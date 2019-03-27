@@ -27,14 +27,16 @@ class Level : public Object
 {
 	protected:
 		int				line = 0;
-		int				scroll_speed = 2;
+		int				scroll_speed = 4;
 		vector <struct LevelEvent> events;
 
 	public:
 		void			InterpretEvent();
-						Level (Game *Pgame) : Object(Pgame, (char *) "level.png", true, 0, -720)
+		void			LoadLevelFile(char level_path[]);
+						Level (Game *Pgame, char level_path[]) : Object(Pgame, (char *) "level.png", true, 0, -720)
 						{
 							type = ObjectType::OBJ_LEVEL;
+							this->LoadLevelFile(level_path);
 						}
 
 		void			Tick();
