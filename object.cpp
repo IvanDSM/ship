@@ -22,12 +22,6 @@ Object::Object(Game *Pgame, char texture_path[], bool is_visible, int pos_x, int
 	}
 }
 
-Object::~Object()
-{
-	visible = false;
-	SDL_DestroyTexture(sprite);
-}
-
 void Object::Draw()
 {
 	if (!alive || !visible)
@@ -46,4 +40,11 @@ void Object::Draw()
 
 	SDL_RenderCopyEx(game->renderer, sprite, NULL, &destination_rectangle, 0, NULL, flip_value);
 
+}
+
+void Object::Kill()
+{
+	alive = false;
+	visible = false;
+	SDL_DestroyTexture(sprite);
 }

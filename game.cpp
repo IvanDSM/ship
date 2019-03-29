@@ -50,7 +50,7 @@ Game::~Game()
 {
 	if (tickThread.joinable())
 		tickThread.join();
-	free(keystates);
+	// FIND a way to free the keystates vector here
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 }
@@ -76,7 +76,7 @@ void Game::RemObject(Object *obj)
 	if (iter != objects.end())
 		objects.erase(iter);
 
-	obj->~Object();
+	obj->Kill();
 }
 
 void Game::Render()
@@ -97,17 +97,17 @@ void Game::Render()
 
 void Game::Tick()
 {
-	SDL_PollEvent(&this->events);
-	this->keystates = (Uint8 *) SDL_GetKeyboardState(NULL);
-
-	if (this->events.type == SDL_QUIT || this->events.type == SDLK_q)
+	if (running)
 	{
-		cout << "ship: Received quit signal, closing game." << endl;
-		running = false;
-	}
+		SDL_PollEvent(&this->events);
+		this->keystates = (Uint8 *) SDL_GetKeyboardState(NULL);
 
-	if (this->running)
-	{
+		if (this->events.type == SDL_QUIT || this->events.type == SDLK_q)
+		{
+			cout << "ship: Received quit signal, closing game." << endl;
+			running = false;
+		}
+
 		if (this->objects.size() != 0)
 		{
 			for (Object *o : this->objects)
@@ -118,7 +118,6 @@ void Game::Tick()
 
 		usleep(1000000/60.000);
 
-		if (this->running)
-			this->Tick();
+		this->Tick();
 	}
 }
