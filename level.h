@@ -4,6 +4,7 @@
 #include "object.h"
 #include <vector>
 
+using std::string;
 using std::vector;
 
 enum class LevelEventType

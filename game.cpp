@@ -18,7 +18,7 @@ Game::Game()
 {
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS | SDL_INIT_TIMER) < 0)
 	{
-		cout << endl << "ship: SDL failed to initialize!";
+		cout << "ship: SDL failed to initialize!" << endl;
 		exit(0);
 	}
 
@@ -86,7 +86,7 @@ void Game::Tick()
 
 	if (this->events.type == SDL_QUIT || this->events.type == SDLK_q)
 	{
-		cout << endl << "ship: Received quit signal, closing game.";
+		cout << "ship: Received quit signal, closing game." << endl;
 		running = false;
 	}
 
