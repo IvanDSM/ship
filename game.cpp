@@ -18,13 +18,26 @@ Game::Game()
 {
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS | SDL_INIT_TIMER) < 0)
 	{
-		cout << "ship: SDL failed to initialize!" << endl;
-		exit(0);
+		cout << "ship: SDL failed to initialize! SDL Error:" << SDL_GetError() << endl;
+		exit(1);
 	}
 
 	this->window = SDL_CreateWindow("Ivan's Ship Game!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 512, 480, 0);
 
+	if (window == NULL)
+	{
+		cout << "ship: SDL failed to create a window! SDL Error:" << SDL_GetError() << endl;
+		exit(1);
+	}
+
 	this->renderer = SDL_CreateRenderer(this->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+	if (renderer == NULL)
+	{
+		cout << "ship: SDL failed to create a renderer! SDL Error:" << SDL_GetError() << endl;
+		exit(1);
+	}
+
 	SDL_RenderSetScale(renderer, 2.0, 2.0);
 
 	this->running = true;
