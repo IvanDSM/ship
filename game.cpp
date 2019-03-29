@@ -50,6 +50,9 @@ Game::~Game()
 {
 	if (tickThread.joinable())
 		tickThread.join();
+	free(keystates);
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
 }
 
 Object *Game::GetPlayer()

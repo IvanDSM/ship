@@ -21,12 +21,13 @@ Object::Object(Game *Pgame, char texture_path[], bool is_visible, int pos_x, int
 		Pgame->AddObject(this);
 	}
 }
-/*
+
 Object::~Object()
 {
-	// Ivan, stop being lazy and do this already!!!
+	visible = false;
+	SDL_DestroyTexture(sprite);
 }
-*/
+
 void Object::Draw()
 {
 	if (!alive || !visible)

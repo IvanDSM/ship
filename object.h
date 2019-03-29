@@ -39,7 +39,7 @@ class Object
 		ObjectType		type;
 		void			Draw();
 						Object(Game *Pgame, char texture_path[], bool is_visible, int pos_x, int pos_y);
-						//~Object();
+						~Object();
 		virtual void	Tick() = 0;
 };
 
