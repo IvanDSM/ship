@@ -23,4 +23,5 @@ DISTFILES += \
     e_ship.png \
     level.png \
     p_beam.png \
-    p_ship.png
+    p_ship.png \
+    testlevel

@@ -4,21 +4,29 @@
 
 using namespace std;
 
+LevelEvent::LevelEvent(int new_line, LevelEventType new_type, int new_value, bool new_has_child)
+{
+	this->event_line = new_line;
+	this->event_type = new_type;
+	this->value = new_value;
+	this->has_child = new_has_child;
+}
+
 void Level::InterpretEvent()
 {
-	switch (events.front().event_type) // Check the type of the first event in line
+	switch (events.front()->event_type) // Check the type of the first event in line
 	{
 		case LevelEventType::LEVENT_STARTLEVEL:
 			cout << "LEVENT_STARTLEVEL stubbed\n";
 			break;
 		case LevelEventType::LEVENT_SPEEDCHANGE:
-			scroll_speed = events.back().value;
+			scroll_speed = events.back()->value;
 			break;
 		case LevelEventType::LEVENT_SPAWNENEMY:
 			cout << "LEVENT_SPAWNENEMY stubbed\n";
 			break;
 		case LevelEventType::LEVENT_SETBLINK:
-			if (events.back().value == 1)
+			if (events.back()->value == 1)
 				fx_blink = true;
 			else
 				fx_blink = false;
@@ -33,10 +41,24 @@ void Level::InterpretEvent()
 void Level::LoadLevelFile(char level_path[])
 {
 	ifstream LevelFileReader;
-	LevelFileReader.open(level_path, ios::in | ios::ate);
+	LevelFileReader.open(level_path, ios::in);
 	if (LevelFileReader.is_open())
 	{
-		// Implement actual reading
+		int n_events;
+		int newevent_line, newevent_value;
+		int newevent_type;
+		bool newevent_has_child;
+
+		LevelFileReader >> n_events;
+		for (int i; i < n_events; i++)
+		{
+			LevelFileReader >> newevent_line;
+			LevelFileReader >> newevent_type;
+			LevelFileReader >> newevent_value;
+			LevelFileReader >> newevent_has_child;
+
+			events.push_back(new LevelEvent(newevent_line, (LevelEventType) newevent_type, newevent_value, newevent_has_child));
+		}
 	}
 	else
 	{
@@ -49,6 +71,8 @@ void Level::LoadLevelFile(char level_path[])
 
 void Level::Tick()
 {
+	if (events.front()->event_line == line)
+		InterpretEvent();
 	y = -720 + (line % 720);
 	line += scroll_speed;
 }

@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
 	Game ship;
 
-	Level level(&ship, (char *) "level");
+	Level level(&ship, (char *) "testlevel");
 
 	Player player(&ship, 116, 105);
 

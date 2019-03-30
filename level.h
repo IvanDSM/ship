@@ -16,12 +16,15 @@ enum class LevelEventType
 	LEVENT_ENDLEVEL
 };
 
-struct LevelEvent
+class LevelEvent
 {
+	public:
 		int				event_line;
 		LevelEventType	event_type;
 		int				value;
-		LevelEvent		*child;
+		bool			has_child;
+
+		LevelEvent(int new_line, LevelEventType new_type, int new_value, bool new_has_child);
 };
 
 class Level : public Object
@@ -29,7 +32,7 @@ class Level : public Object
 	protected:
 		int				line = 0;
 		int				scroll_speed = 4;
-		vector <struct LevelEvent> events;
+		vector <LevelEvent *> events;
 
 	public:
 		void			InterpretEvent();
