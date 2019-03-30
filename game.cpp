@@ -54,13 +54,13 @@ Game::~Game()
 	SDL_DestroyWindow(window);
 }
 
-Object *Game::GetPlayer()
+Object *Game::GetPlayer(int p_num)
 {
-	if (objects.size() != 0)
+	if (p_num > 0 && p_num < 3 && objects.size() != 0)
 	{
 		for (Object *o : this->objects)
 		{
-			if (o->type == ObjectType::OBJ_PLAYER)
+			if ((p_num == 1 && o->type == ObjectType::OBJ_PLAYER1) || (p_num == 2 && o->type == ObjectType::OBJ_PLAYER2))
 				return o;
 		}
 	}

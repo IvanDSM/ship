@@ -24,7 +24,7 @@ class Game
 		vector<Object *> objects;
 
 		void			AddObject(Object *obj);
-		Object *		GetPlayer();
+		Object *		GetPlayer(int p_num);
 						Game();
 						~Game();
 		void			RemObject(Object *obj);

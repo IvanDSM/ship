@@ -19,7 +19,13 @@ void Level::InterpretEvent()
 	switch (events.front()->event_type) // Check the type of the first event in line
 	{
 		case LevelEventType::LEVENT_STARTLEVEL:
-			game->AddObject(new Player(game, 122, 160));
+			if (!game->is_2p_game)
+				game->AddObject(new Player(game, 122, 160, 1));
+			else
+			{
+				game->AddObject(new Player(game, 74, 160, 1));
+				game->AddObject(new Player(game, 154, 160, 2));
+			}
 			break;
 		case LevelEventType::LEVENT_SPEEDCHANGE:
 			scroll_speed = events.back()->value;

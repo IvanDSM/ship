@@ -9,6 +9,13 @@ void Player::Tick()
 		else
 			is_spawning = false;
 	}
+	else if (is_ending)
+	{
+		if (y > -15)
+			y--;
+		else
+			cout; // I dunno
+	}
 	else
 	{
 		if (beam_timer > 0)
