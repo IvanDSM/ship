@@ -50,7 +50,6 @@ Game::~Game()
 {
 	if (tickThread.joinable())
 		tickThread.join();
-	// FIND a way to free the keystates vector here
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 }

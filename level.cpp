@@ -6,7 +6,7 @@ using namespace std;
 
 void Level::InterpretEvent()
 {
-	switch (events.back().event_type)
+	switch (events.front().event_type) // Check the type of the first event in line
 	{
 		case LevelEventType::LEVENT_STARTLEVEL:
 			cout << "LEVENT_STARTLEVEL stubbed\n";
@@ -27,7 +27,7 @@ void Level::InterpretEvent()
 			cout << "LEVENT_ENDLEVEL stubbed\n";
 			break;
 	}
-	events.pop_back();
+	events.erase(0); // Erase the first event in line
 }
 
 void Level::LoadLevelFile(char level_path[])

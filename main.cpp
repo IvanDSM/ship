@@ -20,5 +20,7 @@ int main(int argc, char *argv[])
 	Player player(&ship, 116, 105);
 
 	while (ship.running)
-	{}
+	{
+
+	}
 }
