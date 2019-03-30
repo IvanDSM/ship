@@ -17,8 +17,6 @@ int main(int argc, char *argv[])
 
 	Level level(&ship, (char *) "testlevel");
 
-	Player player(&ship, 116, 105);
-
 	while (ship.running)
 	{
 

@@ -1,6 +1,8 @@
 #include <fstream>
+#include "game.h"
 #include <iostream>
 #include "level.h"
+#include "player.h"
 
 using namespace std;
 
@@ -17,7 +19,7 @@ void Level::InterpretEvent()
 	switch (events.front()->event_type) // Check the type of the first event in line
 	{
 		case LevelEventType::LEVENT_STARTLEVEL:
-			cout << "LEVENT_STARTLEVEL stubbed\n";
+			game->AddObject(new Player(game, 116, 160));
 			break;
 		case LevelEventType::LEVENT_SPEEDCHANGE:
 			scroll_speed = events.back()->value;

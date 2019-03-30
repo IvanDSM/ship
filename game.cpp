@@ -97,7 +97,7 @@ void Game::Render()
 void Game::Tick()
 {
 	if (running)
-	{
+	{;
 		SDL_PollEvent(&this->events);
 		this->keystates = (Uint8 *) SDL_GetKeyboardState(NULL);
 

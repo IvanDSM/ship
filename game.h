@@ -13,6 +13,7 @@ class Game
 
 	public:
 
+		bool			is_2p_game;
 		bool			running;
 		int				frame;
 		SDL_Event		events;
