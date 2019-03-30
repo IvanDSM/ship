@@ -27,12 +27,24 @@ void Level::InterpretEvent()
 			cout << "LEVENT_ENDLEVEL stubbed\n";
 			break;
 	}
-	events.erase(0); // Erase the first event in line
+	events.erase(events.begin()); // Erase the first event in line
 }
 
 void Level::LoadLevelFile(char level_path[])
 {
+	ifstream LevelFileReader;
+	LevelFileReader.open(level_path, ios::in | ios::ate);
+	if (LevelFileReader.is_open())
+	{
+		// Implement actual reading
+	}
+	else
+	{
+		cout << "ship: Failed to load level file! Error: " << strerror(errno) << endl;
+		exit(1);
+	}
 
+	LevelFileReader.close();
 }
 
 void Level::Tick()
