@@ -3,6 +3,7 @@
 #include <iostream>
 #include "level.h"
 #include "player.h"
+#include "slider.h"
 
 using namespace std;
 
@@ -31,10 +32,11 @@ void Level::InterpretEvent()
 			scroll_speed = events.back()->value;
 			break;
 		case LevelEventType::LEVENT_SPAWNENEMY:
-			cout << "LEVENT_SPAWNENEMY stubbed\n";
+			if (events.front()->value == 0)
+				game->AddObject(new Slider(game, 32));
 			break;
 		case LevelEventType::LEVENT_SETBLINK:
-			if (events.back()->value == 1)
+			if (events.front()->value == 1)
 				fx_blink = true;
 			else
 				fx_blink = false;

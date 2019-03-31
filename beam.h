@@ -29,6 +29,7 @@ class Beam : public Object
 									sprite = SDL_CreateTextureFromSurface(game->renderer, IMG_Load((char *) "e_beam.png"));
 									break;
 							}
+							beamtype = btype;
 							SDL_QueryTexture(sprite, NULL, NULL, &this->w, &this->h);
 							Pgame->AddObject(this);
 						}

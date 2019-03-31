@@ -28,7 +28,7 @@ Game::Game()
 		exit(1);
 	}
 
-	this->window = SDL_CreateWindow("Ivan's Ship Game!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 512, 480, SDL_WINDOW_FULLSCREEN);
+	this->window = SDL_CreateWindow("Ivan's Ship Game!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 512, 480, 0);
 
 	if (window == NULL)
 	{

@@ -9,14 +9,16 @@ SOURCES += main.cpp \
     object.cpp \
     player.cpp \
     beam.cpp \
-    level.cpp
+    level.cpp \
+    slider.cpp
 
 HEADERS += \
     game.h \
     object.h \
     player.h \
     beam.h \
-    level.h
+    level.h \
+    slider.h
 
 DISTFILES += \
     e_beam.png \
