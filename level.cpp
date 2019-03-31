@@ -29,7 +29,7 @@ void Level::InterpretEvent()
 			}
 			break;
 		case LevelEventType::LEVENT_SPEEDCHANGE:
-			scroll_speed = events.back()->value;
+			scroll_speed = events.front()->value;
 			break;
 		case LevelEventType::LEVENT_SPAWNENEMY:
 			if (events.front()->value == 0)
