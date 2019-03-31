@@ -36,7 +36,14 @@ void Object::Draw()
 	destination_rectangle.x = x;
 	destination_rectangle.y = y;
 
-	SDL_RendererFlip flip_value = SDL_FLIP_NONE;
+	SDL_RendererFlip flip_value;
+
+	flip_value = SDL_FLIP_NONE;
+
+	if (fx_fliph)
+		flip_value = (SDL_RendererFlip) (flip_value | SDL_FLIP_HORIZONTAL);
+	if (fx_flipv)
+		flip_value = (SDL_RendererFlip) (flip_value | SDL_FLIP_VERTICAL);
 
 	SDL_RenderCopyEx(game->renderer, sprite, NULL, &destination_rectangle, 0, NULL, flip_value);
 
