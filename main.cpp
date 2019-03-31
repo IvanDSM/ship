@@ -19,6 +19,6 @@ int main(int argc, char *argv[])
 
 	while (ship.running)
 	{
-
+		cout << ""; // Quick hack - if I take this out, the program doesn't close properly in Release build mode.
 	}
 }
