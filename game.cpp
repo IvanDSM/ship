@@ -38,7 +38,7 @@ Game::Game()
 		exit(1);
 	}
 
-	SDL_RenderSetScale(renderer, 2.0, 2.0);
+	SDL_RenderSetLogicalSize(renderer, 256, 240);
 
 	this->running = true;
 
