@@ -22,7 +22,7 @@ class Slider : public Object
 					Slider(Game *Pgame, int pos_x) : Object (Pgame, (char *) "e_ship.png", true, pos_x, -13)
 					{
 						spacing = pos_x;
-						srand(time(NULL));
+						srand(time(NULL) + clock());
 						desired_y = rand() % 68;
 						shots_radius = rand() % 49;
 						slides_before_aggresive = rand() % 8;
