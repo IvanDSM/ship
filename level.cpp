@@ -60,7 +60,7 @@ void Level::LoadLevelFile(char level_path[])
 		bool newevent_has_child;
 
 		LevelFileReader >> n_events;
-		for (int i; i < n_events; i++)
+		for (int i = 0; i < n_events; i++)
 		{
 			LevelFileReader >> newevent_line;
 			LevelFileReader >> newevent_type;
